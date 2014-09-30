@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  buhzer
 //
-//  Created by joe student on 9/30/14.
+//  Created by Caleb on 9/30/14.
 //  Copyright (c) 2014 cs98. All rights reserved.
 //
 

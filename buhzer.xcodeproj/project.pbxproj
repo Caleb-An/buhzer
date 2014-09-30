@@ -22,6 +22,18 @@
 		3F3FD74719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */; };
 		3F3FD74F19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD74D19DB4EBC00AAEF97 /* InfoPlist.strings */; };
 		3F3FD75119DB4EBC00AAEF97 /* buhzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3FD75019DB4EBC00AAEF97 /* buhzerTests.m */; };
+		3F3FD75B19DB528600AAEF97 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD75A19DB528600AAEF97 /* AddressBook.framework */; };
+		3F3FD75D19DB528D00AAEF97 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD75C19DB528D00AAEF97 /* AssetsLibrary.framework */; };
+		3F3FD76419DB52D100AAEF97 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD75E19DB52D100AAEF97 /* CoreLocation.framework */; };
+		3F3FD76519DB52D100AAEF97 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD75F19DB52D100AAEF97 /* CoreMotion.framework */; };
+		3F3FD76619DB52D100AAEF97 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76019DB52D100AAEF97 /* CoreText.framework */; };
+		3F3FD76719DB52D100AAEF97 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76119DB52D100AAEF97 /* MediaPlayer.framework */; };
+		3F3FD76819DB52D100AAEF97 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76219DB52D100AAEF97 /* Security.framework */; };
+		3F3FD76919DB52D100AAEF97 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76319DB52D100AAEF97 /* SystemConfiguration.framework */; };
+		3F3FD76B19DB535800AAEF97 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76A19DB535800AAEF97 /* GoogleOpenSource.framework */; };
+		3F3FD76C19DB535800AAEF97 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76A19DB535800AAEF97 /* GoogleOpenSource.framework */; };
+		3F3FD76E19DB536800AAEF97 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76D19DB536700AAEF97 /* GooglePlus.framework */; };
+		3F3FD76F19DB536800AAEF97 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76D19DB536700AAEF97 /* GooglePlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +67,16 @@
 		3F3FD74C19DB4EBC00AAEF97 /* buhzerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "buhzerTests-Info.plist"; sourceTree = "<group>"; };
 		3F3FD74E19DB4EBC00AAEF97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F3FD75019DB4EBC00AAEF97 /* buhzerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = buhzerTests.m; sourceTree = "<group>"; };
+		3F3FD75A19DB528600AAEF97 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3F3FD75C19DB528D00AAEF97 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		3F3FD75E19DB52D100AAEF97 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F3FD75F19DB52D100AAEF97 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3F3FD76019DB52D100AAEF97 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3F3FD76119DB52D100AAEF97 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		3F3FD76219DB52D100AAEF97 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3F3FD76319DB52D100AAEF97 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3F3FD76A19DB535800AAEF97 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
+		3F3FD76D19DB536700AAEF97 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +84,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3FD76419DB52D100AAEF97 /* CoreLocation.framework in Frameworks */,
+				3F3FD76519DB52D100AAEF97 /* CoreMotion.framework in Frameworks */,
+				3F3FD76619DB52D100AAEF97 /* CoreText.framework in Frameworks */,
+				3F3FD76719DB52D100AAEF97 /* MediaPlayer.framework in Frameworks */,
+				3F3FD76819DB52D100AAEF97 /* Security.framework in Frameworks */,
+				3F3FD76E19DB536800AAEF97 /* GooglePlus.framework in Frameworks */,
+				3F3FD76919DB52D100AAEF97 /* SystemConfiguration.framework in Frameworks */,
 				3F3FD72519DB4EBC00AAEF97 /* CoreGraphics.framework in Frameworks */,
+				3F3FD75D19DB528D00AAEF97 /* AssetsLibrary.framework in Frameworks */,
+				3F3FD75B19DB528600AAEF97 /* AddressBook.framework in Frameworks */,
 				3F3FD72719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */,
+				3F3FD76B19DB535800AAEF97 /* GoogleOpenSource.framework in Frameworks */,
 				3F3FD72319DB4EBC00AAEF97 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,8 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3FD76F19DB536800AAEF97 /* GooglePlus.framework in Frameworks */,
 				3F3FD74519DB4EBC00AAEF97 /* XCTest.framework in Frameworks */,
 				3F3FD74719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */,
+				3F3FD76C19DB535800AAEF97 /* GoogleOpenSource.framework in Frameworks */,
 				3F3FD74619DB4EBC00AAEF97 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +137,16 @@
 		3F3FD72119DB4EBC00AAEF97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F3FD76D19DB536700AAEF97 /* GooglePlus.framework */,
+				3F3FD76A19DB535800AAEF97 /* GoogleOpenSource.framework */,
+				3F3FD75E19DB52D100AAEF97 /* CoreLocation.framework */,
+				3F3FD75F19DB52D100AAEF97 /* CoreMotion.framework */,
+				3F3FD76019DB52D100AAEF97 /* CoreText.framework */,
+				3F3FD76119DB52D100AAEF97 /* MediaPlayer.framework */,
+				3F3FD76219DB52D100AAEF97 /* Security.framework */,
+				3F3FD76319DB52D100AAEF97 /* SystemConfiguration.framework */,
+				3F3FD75C19DB528D00AAEF97 /* AssetsLibrary.framework */,
+				3F3FD75A19DB528600AAEF97 /* AddressBook.framework */,
 				3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */,
 				3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */,
 				3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */,
@@ -390,6 +434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
@@ -403,6 +451,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
@@ -419,6 +471,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
@@ -441,6 +494,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
