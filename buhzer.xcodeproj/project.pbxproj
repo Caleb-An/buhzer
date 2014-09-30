@@ -32,6 +32,8 @@
 		3F3FD76919DB52D100AAEF97 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD76319DB52D100AAEF97 /* SystemConfiguration.framework */; };
 		3F3FD77119DB548500AAEF97 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD77019DB548500AAEF97 /* GoogleOpenSource.framework */; };
 		3F3FD77319DB549300AAEF97 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD77219DB549300AAEF97 /* GooglePlus.framework */; };
+		3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
+		3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 		3F3FD76319DB52D100AAEF97 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3F3FD77019DB548500AAEF97 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = buhzer/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		3F3FD77219DB549300AAEF97 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = buhzer/GooglePlus.framework; sourceTree = "<group>"; };
+		3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 		3F3FD71619DB4EBC00AAEF97 = {
 			isa = PBXGroup;
 			children = (
+				3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */,
 				3F3FD72819DB4EBC00AAEF97 /* buhzer */,
 				3F3FD74A19DB4EBC00AAEF97 /* buhzerTests */,
 				3F3FD72119DB4EBC00AAEF97 /* Frameworks */,
@@ -272,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3FD73919DB4EBC00AAEF97 /* Main_iPad.storyboard in Resources */,
+				3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
 				3F3FD73E19DB4EBC00AAEF97 /* Images.xcassets in Resources */,
 				3F3FD73619DB4EBC00AAEF97 /* Main_iPhone.storyboard in Resources */,
 				3F3FD72D19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */,
@@ -282,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
 				3F3FD74F19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +463,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

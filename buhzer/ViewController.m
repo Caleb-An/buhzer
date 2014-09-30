@@ -12,6 +12,10 @@
 
 @end
 
+static NSString * const kClientId = @"742034285387-e2trl98cq24vm07equecdd3o29ff3r4v.apps.googleusercontent.com";
+static NSString *const kClientSecret = @"tU5WIgFqhaVtsSZxJ8nptaIC";
+static NSString *const kKeychainItemName = @"Buhzer";
+
 @implementation ViewController
 
 - (void)viewDidLoad
