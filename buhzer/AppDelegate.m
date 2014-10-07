@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <GooglePlus/GooglePlus.h>
+
+
+static NSString * const kClientId = @"742034285387-e2trl98cq24vm07equecdd3o29ff3r4v.apps.googleusercontent.com";
+static NSString *const kClientSecret = @"tU5WIgFqhaVtsSZxJ8nptaIC";
+static NSString *const kKeychainItemName = @"Buhzer";
 
 @implementation AppDelegate
 
@@ -41,6 +47,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application: (UIApplication *)application
+            openURL: (NSURL *)url
+  sourceApplication: (NSString *)sourceApplication
+         annotation: (id)annotation {
+    return [GPPURLHandler handleURL:url
+                  sourceApplication:sourceApplication
+                         annotation:annotation];
 }
 
 @end

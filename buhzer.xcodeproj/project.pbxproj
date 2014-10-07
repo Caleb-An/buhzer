@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2599B0DCC501F5A280F1F2AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A72D3005C1F017051940842E /* libPods.a */; };
+		3F1CA49819E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
+		3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
 		3F3FD72319DB4EBC00AAEF97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */; };
 		3F3FD72519DB4EBC00AAEF97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */; };
 		3F3FD72719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */; };
@@ -34,6 +37,8 @@
 		3F3FD77319DB549300AAEF97 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD77219DB549300AAEF97 /* GooglePlus.framework */; };
 		3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
 		3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
+		3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB00D7E19E233690040AC87 /* HomeViewController.m */; };
+		3FB00EE819E3B5E90040AC87 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3FB00EE719E3B5E90040AC87 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F1CA49719E3BE1700FA1CA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3F3FD71F19DB4EBC00AAEF97 /* buhzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buhzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,6 +84,13 @@
 		3F3FD77019DB548500AAEF97 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = buhzer/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		3F3FD77219DB549300AAEF97 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = buhzer/GooglePlus.framework; sourceTree = "<group>"; };
 		3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		3F92D6EC19E3BD0800B64DF5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3FB00D7E19E233690040AC87 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		3FB00D8019E233D70040AC87 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		3FB00EE719E3B5E90040AC87 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A23A617EFA7AEC330D94796A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A72D3005C1F017051940842E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D590313DAB76237811623072 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +111,7 @@
 				3F3FD75B19DB528600AAEF97 /* AddressBook.framework in Frameworks */,
 				3F3FD72719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */,
 				3F3FD72319DB4EBC00AAEF97 /* Foundation.framework in Frameworks */,
+				2599B0DCC501F5A280F1F2AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,11 +131,13 @@
 		3F3FD71619DB4EBC00AAEF97 = {
 			isa = PBXGroup;
 			children = (
+				3FB00EE719E3B5E90040AC87 /* Podfile */,
 				3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */,
 				3F3FD72819DB4EBC00AAEF97 /* buhzer */,
 				3F3FD74A19DB4EBC00AAEF97 /* buhzerTests */,
 				3F3FD72119DB4EBC00AAEF97 /* Frameworks */,
 				3F3FD72019DB4EBC00AAEF97 /* Products */,
+				A220EF7ADF654F6AC70B35EA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +167,7 @@
 				3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */,
 				3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */,
 				3F3FD74419DB4EBC00AAEF97 /* XCTest.framework */,
+				A72D3005C1F017051940842E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,8 +181,12 @@
 				3F3FD73719DB4EBC00AAEF97 /* Main_iPad.storyboard */,
 				3F3FD73A19DB4EBC00AAEF97 /* ViewController.h */,
 				3F3FD73B19DB4EBC00AAEF97 /* ViewController.m */,
+				3FB00D7E19E233690040AC87 /* HomeViewController.m */,
+				3F92D6EC19E3BD0800B64DF5 /* User.h */,
+				3FB00D8019E233D70040AC87 /* HomeViewController.h */,
 				3F3FD73D19DB4EBC00AAEF97 /* Images.xcassets */,
 				3F3FD72919DB4EBC00AAEF97 /* Supporting Files */,
+				3F1CA49719E3BE1700FA1CA8 /* User.m */,
 			);
 			path = buhzer;
 			sourceTree = "<group>";
@@ -199,6 +220,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A220EF7ADF654F6AC70B35EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A23A617EFA7AEC330D94796A /* Pods.debug.xcconfig */,
+				D590313DAB76237811623072 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F3FD75419DB4EBC00AAEF97 /* Build configuration list for PBXNativeTarget "buhzer" */;
 			buildPhases = (
+				AB69C5D7C5966C90ED7F9E16 /* Check Pods Manifest.lock */,
 				3F3FD71B19DB4EBC00AAEF97 /* Sources */,
 				3F3FD71C19DB4EBC00AAEF97 /* Frameworks */,
 				3F3FD71D19DB4EBC00AAEF97 /* Resources */,
+				C6F3781A6A0EEC6CD3FAEFB9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB00EE819E3B5E90040AC87 /* Podfile in Resources */,
 				3F3FD73919DB4EBC00AAEF97 /* Main_iPad.storyboard in Resources */,
 				3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
 				3F3FD73E19DB4EBC00AAEF97 /* Images.xcassets in Resources */,
@@ -294,14 +327,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AB69C5D7C5966C90ED7F9E16 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F3781A6A0EEC6CD3FAEFB9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F3FD71B19DB4EBC00AAEF97 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1CA49819E3BE1700FA1CA8 /* User.m in Sources */,
 				3F3FD73C19DB4EBC00AAEF97 /* ViewController.m in Sources */,
 				3F3FD73319DB4EBC00AAEF97 /* AppDelegate.m in Sources */,
 				3F3FD72F19DB4EBC00AAEF97 /* main.m in Sources */,
+				3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */,
 				3F3FD75119DB4EBC00AAEF97 /* buhzerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +502,7 @@
 		};
 		3F3FD75519DB4EBC00AAEF97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A23A617EFA7AEC330D94796A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -444,14 +514,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		3F3FD75619DB4EBC00AAEF97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D590313DAB76237811623072 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -463,8 +539,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -530,6 +610,7 @@
 				3F3FD75619DB4EBC00AAEF97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F3FD75719DB4EBC00AAEF97 /* Build configuration list for PBXNativeTarget "buhzerTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +619,7 @@
 				3F3FD75919DB4EBC00AAEF97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
