@@ -11,6 +11,7 @@
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
 #import "RestKit.h"
+#import "AFNetworking.h"
 
 @interface HomeViewController ()
 
@@ -22,20 +23,12 @@ static NSString *const kKeychainItemName = @"Buhzer";
 
 @implementation HomeViewController
 
-
-// http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com/api/auth/login
-// User.AccountProvider.GOOGLE.name(),
-// user.getId(),
-// user.getDisplayName(),
-// user.getName().getGivenName(),
-// user.getName().getFamilyName(),
-// Plus.AccountApi.getAccountName(getPlusClient())
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    NSLog(@"Here we go Mario!");
+
     self.hashLabel.text = @"Test";
+    self.hashLabel.textAlignment= NSTextAlignmentCenter;
     
     GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
     plusService.retryEnabled = YES;
@@ -57,37 +50,59 @@ static NSString *const kKeychainItemName = @"Buhzer";
                     NSString *description = [NSString stringWithFormat:
                                              @"%@\n%@", person.displayName,
                                              person.aboutMe];
-                    NSLog(@"%@", description);
+                    //NSLog(@"%@", description);
                     
                     GTLPlusPersonEmailsItem *emailItem = [person.emails firstObject];
-                    NSLog(@"email:%@", emailItem.value);
-                    RKObjectMapping* userMapping = [RKObjectMapping mappingForClass:[User class]];
-                    [userMapping addAttributeMappingsFromDictionary:@{
-                                                                      @"provider": @"GOOGLE",
-                                                                      @"uid": person.identifier,
-                                                                      @"name": person.displayName,
-                                                                      @"firstName": person.name.givenName,
-                                                                      @"lastName": person.name.familyName,
-                                                                      @"email": emailItem.value
-                                                                      }];
+                    //NSLog(@"email:%@", emailItem.value);
                     
-                    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:userMapping method:RKRequestMethodPOST pathPattern:nil keyPath:@"articles" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
                     
-                    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com/api/auth/login"];
-                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-                    request.HTTPMethod = @"POST";
+                    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
+                                                 @"provider": @"GOOGLE",
+                                                 @"uid": person.identifier,
+                                                 @"name": person.displayName,
+                                                 @"firstName": person.name.givenName,
+                                                 @"lastName": person.name.familyName,
+                                                 @"email": emailItem.value
+                                                 }];
                     
-                    RKObjectRequestOperation *objectRequestOperation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[ responseDescriptor ]];
-                    [objectRequestOperation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                
+                    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+//                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+//                    request.HTTPMethod = @"POST";
+                    
+                    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
+//                    [objectManager requestWithObject:nil method:RKRequestMethodPOST path:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com" parameters:dict];
+//                    objectManager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+                    
+                    
+                    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[User class]];
+                    [responseMapping addAttributeMappingsFromArray:@[@"id",
+                                                                     @"provider",
+                                                                     @"accountType",
+                                                                     @"uniqueHash",
+                                                                     @"uid",
+                                                                     @"name",
+                                                                     @"email",
+                                                                     @"firstName",
+                                                                     @"lastName",
+                                                                     @"createdAt"]];
+                    
+                    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+                    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:@"/api/auth/login" keyPath:nil statusCodes:statusCodes];
+                    
+                    [objectManager addResponseDescriptor:responseDescriptor];
+                    
+                    [objectManager postObject:nil path:@"/api/auth/login" parameters:dict success:
+                     ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+                        User *user = [result firstObject];
                         
-                        NSLog(@"Much success."); 
-                        
-                        
-                    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                        NSLog(@"Operation failed with error: %@", error);
-                    }];
-                    
-                    [objectRequestOperation start];                }
+                        NSLog(@"We object mapped the response with the following result: %@", user);
+                        NSLog(@"The hash is : %@", user.uniqueHash);
+                        [self.hashLabel setText:user.uniqueHash];
+                     } failure:^(RKObjectRequestOperation *operation, NSError *failure) {
+                         NSLog(@"Shit just exploded: %@", failure);
+                     } ];
+                }
             }];
     
     

@@ -44,7 +44,7 @@ static NSString *const kKeychainItemName = @"Buhzer";
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error {
-    NSLog(@"error %@ \n\n auth %@", error, auth);
+   
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     HomeViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"home"];
     obj.auth = auth; 
