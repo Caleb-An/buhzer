@@ -44,10 +44,20 @@ static NSString *const kKeychainItemName = @"Buhzer";
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error {
-   
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    HomeViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"home"];
-    obj.auth = auth; 
+    
+    HomeViewController *obj;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"restaurant_mode"]) {
+           obj = [storyboard instantiateViewControllerWithIdentifier:@"provider"];
+    } else {
+        obj = [storyboard instantiateViewControllerWithIdentifier:@"home"];
+    }
+
+    
+    
+    obj.auth = auth;
     self.navigationController.navigationBarHidden=YES;
     [self.navigationController pushViewController:obj animated:YES];
 }

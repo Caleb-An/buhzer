@@ -10,6 +10,8 @@
 		2599B0DCC501F5A280F1F2AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A72D3005C1F017051940842E /* libPods.a */; };
 		3F1CA49819E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
 		3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
+		3F1CA4A119ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
+		3F1CA4A219ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
 		3F3FD72319DB4EBC00AAEF97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */; };
 		3F3FD72519DB4EBC00AAEF97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */; };
 		3F3FD72719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */; };
@@ -37,6 +39,8 @@
 		3F3FD77319DB549300AAEF97 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD77219DB549300AAEF97 /* GooglePlus.framework */; };
 		3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
 		3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
+		3F8A0B5619ECB30E008F3F8B /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */; };
+		3F8A0B5719ECB30E008F3F8B /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */; };
 		3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB00D7E19E233690040AC87 /* HomeViewController.m */; };
 		3FB00EE819E3B5E90040AC87 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3FB00EE719E3B5E90040AC87 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -53,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		3F1CA49719E3BE1700FA1CA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		3F3FD71F19DB4EBC00AAEF97 /* buhzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buhzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +89,8 @@
 		3F3FD77019DB548500AAEF97 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = buhzer/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		3F3FD77219DB549300AAEF97 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = buhzer/GooglePlus.framework; sourceTree = "<group>"; };
 		3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderViewController.m; sourceTree = "<group>"; };
+		3F8A0B5919ECB382008F3F8B /* ProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderViewController.h; sourceTree = "<group>"; };
 		3F92D6EC19E3BD0800B64DF5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3FB00D7E19E233690040AC87 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3FB00D8019E233D70040AC87 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -179,14 +186,17 @@
 				3F3FD73219DB4EBC00AAEF97 /* AppDelegate.m */,
 				3F3FD73419DB4EBC00AAEF97 /* Main_iPhone.storyboard */,
 				3F3FD73719DB4EBC00AAEF97 /* Main_iPad.storyboard */,
+				3F92D6EC19E3BD0800B64DF5 /* User.h */,
 				3F3FD73A19DB4EBC00AAEF97 /* ViewController.h */,
 				3F3FD73B19DB4EBC00AAEF97 /* ViewController.m */,
-				3FB00D7E19E233690040AC87 /* HomeViewController.m */,
-				3F92D6EC19E3BD0800B64DF5 /* User.h */,
 				3FB00D8019E233D70040AC87 /* HomeViewController.h */,
+				3FB00D7E19E233690040AC87 /* HomeViewController.m */,
 				3F3FD73D19DB4EBC00AAEF97 /* Images.xcassets */,
 				3F3FD72919DB4EBC00AAEF97 /* Supporting Files */,
 				3F1CA49719E3BE1700FA1CA8 /* User.m */,
+				3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */,
+				3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */,
+				3F8A0B5919ECB382008F3F8B /* ProviderViewController.h */,
 			);
 			path = buhzer;
 			sourceTree = "<group>";
@@ -313,6 +323,7 @@
 				3F3FD73E19DB4EBC00AAEF97 /* Images.xcassets in Resources */,
 				3F3FD73619DB4EBC00AAEF97 /* Main_iPhone.storyboard in Resources */,
 				3F3FD72D19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */,
+				3F1CA4A119ECA0DF00FA1CA8 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
+				3F1CA4A219ECA0DF00FA1CA8 /* Settings.bundle in Resources */,
 				3F3FD74F19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +382,7 @@
 				3F3FD73319DB4EBC00AAEF97 /* AppDelegate.m in Sources */,
 				3F3FD72F19DB4EBC00AAEF97 /* main.m in Sources */,
 				3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */,
+				3F8A0B5619ECB30E008F3F8B /* ProviderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +392,7 @@
 			files = (
 				3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */,
 				3F3FD75119DB4EBC00AAEF97 /* buhzerTests.m in Sources */,
+				3F8A0B5719ECB30E008F3F8B /* ProviderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
