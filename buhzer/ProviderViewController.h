@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
+#import "SWTableViewCell.h"
+#import "User.h"
 
-@interface ProviderViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ProviderViewController : UIViewController <SWTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+
+@property (strong, nonatomic) GTMOAuth2Authentication *auth;
+@property (strong, nonatomic) User *user;
 
 @property (strong, nonatomic) NSMutableArray *queueData;
-@property (strong, nonatomic) GTMOAuth2Authentication *auth;
+@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UITextField *inputField;
 
 @end

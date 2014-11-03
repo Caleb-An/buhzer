@@ -17,7 +17,7 @@
                BlueprintIdentifier = "3F3FD71E19DB4EBC00AAEF97"
                BuildableName = "buhzer.app"
                BlueprintName = "buhzer"
-               ReferencedContainer = "container:buhzer.xcodeproj">
+               ReferencedContainer = "container:Buhzer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "3F3FD74219DB4EBC00AAEF97"
                BuildableName = "buhzerTests.xctest"
                BlueprintName = "buhzerTests"
-               ReferencedContainer = "container:buhzer.xcodeproj">
+               ReferencedContainer = "container:Buhzer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "3F3FD71E19DB4EBC00AAEF97"
             BuildableName = "buhzer.app"
             BlueprintName = "buhzer"
-            ReferencedContainer = "container:buhzer.xcodeproj">
+            ReferencedContainer = "container:Buhzer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "3F3FD71E19DB4EBC00AAEF97"
             BuildableName = "buhzer.app"
             BlueprintName = "buhzer"
-            ReferencedContainer = "container:buhzer.xcodeproj">
+            ReferencedContainer = "container:Buhzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "3F3FD71E19DB4EBC00AAEF97"
             BuildableName = "buhzer.app"
             BlueprintName = "buhzer"
-            ReferencedContainer = "container:buhzer.xcodeproj">
+            ReferencedContainer = "container:Buhzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

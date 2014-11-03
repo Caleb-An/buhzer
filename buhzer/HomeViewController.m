@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "User.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
 #import "RestKit.h"
@@ -24,7 +23,7 @@
     
     [super viewDidLoad];
 
-    self.hashLabel.text = @"Test";
+    self.hashLabel.text = @"";
     self.hashLabel.textAlignment= NSTextAlignmentCenter;
     
     GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
@@ -52,7 +51,6 @@
                     GTLPlusPersonEmailsItem *emailItem = [person.emails firstObject];
                     //NSLog(@"email:%@", emailItem.value);
                     
-                    
                     NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                  @"provider": @"GOOGLE",
                                                  @"uid": person.identifier,
@@ -61,7 +59,7 @@
                                                  @"lastName": person.name.familyName,
                                                  @"email": emailItem.value
                                                  }];
-                    
+                    NSLog(@"%@", dict);
                 
                     NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
 //                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
@@ -94,7 +92,9 @@
                         User *user = [result firstObject];
                         
                         NSLog(@"We object mapped the response with the following result: %@", user);
-                        NSLog(@"The hash is : %@", user.uniqueHash);
+                         NSLog(@"The hash is : %@", user.uniqueHash);
+                        NSLog(@"The name is : %@", user.name);
+                         NSLog(@"The id is : %@", user.id);
                         [self.hashLabel setText:user.uniqueHash];
                      } failure:^(RKObjectRequestOperation *operation, NSError *failure) {
                          NSLog(@"Shit just exploded: %@", failure);

@@ -41,6 +41,8 @@
 		3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */; };
 		3F8A0B5619ECB30E008F3F8B /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */; };
 		3F8A0B5719ECB30E008F3F8B /* ProviderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */; };
+		3F8A0B5E19F60846008F3F8B /* buzher-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5D19F60846008F3F8B /* buzher-logo.png */; };
+		3F8A0B5F19F60846008F3F8B /* buzher-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A0B5D19F60846008F3F8B /* buzher-logo.png */; };
 		3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB00D7E19E233690040AC87 /* HomeViewController.m */; };
 		3FB00EE819E3B5E90040AC87 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3FB00EE719E3B5E90040AC87 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -91,6 +93,7 @@
 		3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderViewController.m; sourceTree = "<group>"; };
 		3F8A0B5919ECB382008F3F8B /* ProviderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderViewController.h; sourceTree = "<group>"; };
+		3F8A0B5D19F60846008F3F8B /* buzher-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buzher-logo.png"; sourceTree = "<group>"; };
 		3F92D6EC19E3BD0800B64DF5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3FB00D7E19E233690040AC87 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3FB00D8019E233D70040AC87 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		3F3FD71619DB4EBC00AAEF97 = {
 			isa = PBXGroup;
 			children = (
+				3F8A0B5D19F60846008F3F8B /* buzher-logo.png */,
 				3FB00EE719E3B5E90040AC87 /* Podfile */,
 				3F3FD77419DB55D900AAEF97 /* GooglePlus.bundle */,
 				3F3FD72819DB4EBC00AAEF97 /* buhzer */,
@@ -288,6 +292,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = cs98;
 				TargetAttributes = {
+					3F3FD71E19DB4EBC00AAEF97 = {
+						DevelopmentTeam = MNREEZ2CBT;
+					};
 					3F3FD74219DB4EBC00AAEF97 = {
 						TestTargetID = 3F3FD71E19DB4EBC00AAEF97;
 					};
@@ -317,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8A0B5E19F60846008F3F8B /* buzher-logo.png in Resources */,
 				3FB00EE819E3B5E90040AC87 /* Podfile in Resources */,
 				3F3FD73919DB4EBC00AAEF97 /* Main_iPad.storyboard in Resources */,
 				3F3FD77519DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
@@ -331,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8A0B5F19F60846008F3F8B /* buzher-logo.png in Resources */,
 				3F3FD77619DB55D900AAEF97 /* GooglePlus.bundle in Resources */,
 				3F1CA4A219ECA0DF00FA1CA8 /* Settings.bundle in Resources */,
 				3F3FD74F19DB4EBC00AAEF97 /* InfoPlist.strings in Resources */,
@@ -520,6 +529,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -528,13 +539,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -545,6 +557,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -553,12 +567,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "buhzer/buhzer-Prefix.pch";
 				INFOPLIST_FILE = "buhzer/buhzer-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
