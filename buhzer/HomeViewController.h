@@ -11,7 +11,6 @@
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
 #import "User.h"
-#import "UserInfo.h"
 
 @interface HomeViewController : UIViewController <SWTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 

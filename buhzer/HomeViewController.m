@@ -12,47 +12,11 @@
 #import "RestKit.h"
 #import "AFNetworking.h"
 
+#import "WaitlistQueue.h"
+
 #define TYPE_PENDING 1
 #define TYPE_QUEUE 2
 
-
-@interface Waitlist : NSObject
-
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *restaurantId;
-@property (nonatomic, strong) NSString *name;
-
-@end
-
-@implementation Waitlist
-@end
-
-@interface Entry : NSObject
-
-
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *waitlistId;
-@property (nonatomic, strong) NSString *providerUserId;
-@property (nonatomic, strong) NSString *clientUserId;
-@property (nonatomic, strong) NSDate *createdAt;
-@property BOOL isActive;
-@property BOOL isBuzzed;
-
-@end
-
-@implementation Entry
-@end
-
-@interface WaitlistQueue : NSObject
-
-@property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) Waitlist *waitlist;
-@property (nonatomic, strong) Entry *entry;
-
-@end
-
-@implementation WaitlistQueue
-@end
 
 @interface HomeViewController ()
 

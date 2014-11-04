@@ -13,21 +13,7 @@
 #import "RestKit.h"
 #import "AFNetworking.h"
 #import "SWTableViewCell.h"
-
-@interface Entry : NSObject
-
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *waitlistId;
-@property (nonatomic, strong) NSString *providerUserId;
-@property (nonatomic, strong) NSString *clientUserId;
-@property (nonatomic, strong) NSDate *createdAt;
-@property BOOL isActive;
-@property BOOL isBuzzed;
-
-@end
-
-@implementation Entry
-@end
+#import "Entry.h"
 
 @implementation ProviderViewController
 

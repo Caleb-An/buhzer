@@ -10,7 +10,6 @@
 #import <GooglePlus/GooglePlus.h>
 #import "SWTableViewCell.h"
 #import "User.h"
-#import "UserInfo.h"
 
 @interface ProviderViewController : UIViewController <SWTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 

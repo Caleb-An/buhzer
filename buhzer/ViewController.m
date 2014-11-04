@@ -54,8 +54,6 @@ static NSString *const kKeychainItemName = @"Buhzer";
     } else {
         obj = [storyboard instantiateViewControllerWithIdentifier:@"home"];
     }
-
-    
     
     obj.auth = auth;
     self.navigationController.navigationBarHidden=YES;
@@ -64,7 +62,7 @@ static NSString *const kKeychainItemName = @"Buhzer";
 
 - (void)presentSignInViewController:(UIViewController *)viewController {
     // This is an example of how you can implement it if your app is navigation-based.
-    [[self navigationController] pushViewController:viewController animated:YES];
+    [[self navigationController] pushViewController:viewController animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
