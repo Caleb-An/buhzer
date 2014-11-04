@@ -12,6 +12,8 @@
 		3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
 		3F1CA4A119ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
 		3F1CA4A219ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
+		3F35E8371A072E04008A474A /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35E8361A072E04008A474A /* UserInfo.m */; };
+		3F35E8391A072E96008A474A /* UserInfo.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F35E8381A072E96008A474A /* UserInfo.h */; };
 		3F3FD72319DB4EBC00AAEF97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */; };
 		3F3FD72519DB4EBC00AAEF97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */; };
 		3F3FD72719DB4EBC00AAEF97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3FD72619DB4EBC00AAEF97 /* UIKit.framework */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		3F1CA49719E3BE1700FA1CA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3F35E8361A072E04008A474A /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		3F35E8381A072E96008A474A /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		3F3FD71F19DB4EBC00AAEF97 /* buhzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buhzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3FD72219DB4EBC00AAEF97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F3FD72419DB4EBC00AAEF97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -201,6 +205,8 @@
 				3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */,
 				3F8A0B5519ECB30E008F3F8B /* ProviderViewController.m */,
 				3F8A0B5919ECB382008F3F8B /* ProviderViewController.h */,
+				3F35E8361A072E04008A474A /* UserInfo.m */,
+				3F35E8381A072E96008A474A /* UserInfo.h */,
 			);
 			path = buhzer;
 			sourceTree = "<group>";
@@ -389,9 +395,11 @@
 				3F1CA49819E3BE1700FA1CA8 /* User.m in Sources */,
 				3F3FD73C19DB4EBC00AAEF97 /* ViewController.m in Sources */,
 				3F3FD73319DB4EBC00AAEF97 /* AppDelegate.m in Sources */,
+				3F35E8391A072E96008A474A /* UserInfo.h in Sources */,
 				3F3FD72F19DB4EBC00AAEF97 /* main.m in Sources */,
 				3FB00D7F19E233690040AC87 /* HomeViewController.m in Sources */,
 				3F8A0B5619ECB30E008F3F8B /* ProviderViewController.m in Sources */,
+				3F35E8371A072E04008A474A /* UserInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

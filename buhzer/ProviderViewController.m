@@ -6,29 +6,27 @@
 //  Copyright (c) 2014 cs98. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "ProviderViewController.h"
+#import <Foundation/Foundation.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
 #import "RestKit.h"
 #import "AFNetworking.h"
 #import "SWTableViewCell.h"
 
-@interface UserInfo : NSObject
+@interface Entry : NSObject
 
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *hashID;
-- (id)initWithName:(NSString *)name withHashID:(NSString *)hashID;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *waitlistId;
+@property (nonatomic, strong) NSString *providerUserId;
+@property (nonatomic, strong) NSString *clientUserId;
+@property (nonatomic, strong) NSDate *createdAt;
+@property BOOL isActive;
+@property BOOL isBuzzed;
 
 @end
 
-@implementation UserInfo
-- (id)initWithName:(NSString *)name withHashID:(NSString *)hashID {
-    self.name = name;
-    self.hashID = hashID;
-    
-    return self;
-}
+@implementation Entry
 @end
 
 @implementation ProviderViewController
@@ -37,6 +35,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"refresh"
+                                               object:nil];
     
     self.inputField.delegate = self;
     
@@ -54,16 +57,8 @@
                 if (error) {
                     GTMLoggerError(@"Error: %@", error);
                 } else {
-                    // Retrieve the display name and "about me" text
-                    
-                    
-                    NSString *description = [NSString stringWithFormat:
-                                             @"%@\n%@", person.displayName,
-                                             person.aboutMe];
-                    //NSLog(@"%@", description);
                     
                     GTLPlusPersonEmailsItem *emailItem = [person.emails firstObject];
-                    //NSLog(@"email:%@", emailItem.value);
                     
                     NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                                @"provider": @"GOOGLE",
@@ -76,13 +71,8 @@
                     NSLog(@"%@", dict);
                     
                     NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
-                    //                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-                    //                    request.HTTPMethod = @"POST";
                     
                     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
-                    //                    [objectManager requestWithObject:nil method:RKRequestMethodPOST path:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com" parameters:dict];
-                    //                    objectManager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
-                    
                     
                     RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[User class]];
                     [responseMapping addAttributeMappingsFromArray:@[@"id",
@@ -108,7 +98,7 @@
                          NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                                     @"userId": self.user.id,
                                                                                                     @"registrationId": [[NSUserDefaults standardUserDefaults] dataForKey:@"deviceToken"],
-                                                                                                    @"platform":@"IOS"                                                                                                    }];
+                                                                                                    @"platform":@"IOS"}];
                          NSLog(@"%@", dict);
                          NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
                          
@@ -130,11 +120,7 @@
             }];
 
     
-    self.queueData = [NSMutableArray arrayWithObjects:
-                      [[UserInfo alloc] initWithName:@"Xinran" withHashID:@"1485"],
-                      [[UserInfo alloc] initWithName:@"Caleb" withHashID:@"2678"],
-                      [[UserInfo alloc] initWithName:@"Hongyu" withHashID:@"9001"],
-                      nil];
+    self.queueData = [[NSMutableArray alloc] init];
 
 }
 
@@ -168,17 +154,47 @@
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
         
         [httpClient postPath:@"/api/waitlists/queue" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-            UserInfo *user = [[UserInfo alloc] initWithName:responseStr withHashID:inputHash];
-            [self.queueData addObject:user];
-            
-            [self.table reloadData];
-            NSLog(@"Request Successful, response '%@'", responseStr);
+            [self refreshTable];
+            NSLog(@"Queue Req Successful");
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
         }];
     }
+}
+
+- (void) refreshTable {
+    
+    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{@"userId": self.user.id}];
+    
+    // Create our new entry mapping
+    RKObjectMapping* entryMapping = [RKObjectMapping mappingForClass:[Entry class] ];
+    // NOTE: When your source and destination key paths are symmetrical, you can use addAttributesFromArray: as a shortcut instead of addAttributesFromDictionary:
+    [entryMapping addAttributeMappingsFromArray:@[ @"id",
+                                                   @"waitlistId",
+                                                   @"providerUserId",
+                                                   @"clientUserId",
+                                                   @"createdAt",
+                                                   @"isActive",
+                                                   @"isBuzzed"]];
+    
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entryMapping method:RKRequestMethodAny pathPattern:@"/api/waitlists/user" keyPath:nil statusCodes:statusCodes];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    [objectManager getObject:nil path:@"/api/waitlists/user" parameters:dict success:
+     ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+         NSLog(@"gottem!");
+         self.queueData = [[result array] mutableCopy];
+         [self.table reloadData];
+         
+     } failure:^(RKObjectRequestOperation *operation, NSError *failure) {
+         NSLog(@"Shit just exploded: %@", failure);
+     } ];
+
 }
 
 // table functions
@@ -187,7 +203,7 @@
     return [self.queueData count];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
     
@@ -205,9 +221,9 @@
         cell.delegate = self;
     }
     
-    UserInfo *user = self.queueData[indexPath.row];
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = user.hashID;
+    Entry *entry = self.queueData[indexPath.row];
+    cell.textLabel.text = [@"Mister " stringByAppendingString:entry.waitlistId];
+    cell.detailTextLabel.text = entry.clientUserId;
     
     return cell;
 }
@@ -315,6 +331,19 @@
         return NO;
     }
     return YES;
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    NSLog(@"refresh notif received.");
+    [self refreshTable];
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    if ([[notification name] isEqualToString:@"refresh"]){
+        
+    }
+    
 }
 
 @end

@@ -20,6 +20,14 @@ static NSString *const kKeychainItemName = @"Buhzer";
 {
     [self registerNotificationSettingsForApp:application];
     // Override point for customization after application launch.
+    UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (notif) {
+        NSString *type = [notif.userInfo objectForKey:@"type"];
+        NSLog(@"did start with type: %@",type);
+        application.applicationIconBadgeNumber = notif.applicationIconBadgeNumber-1;
+    }
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -36,22 +44,48 @@ static NSString *const kKeychainItemName = @"Buhzer";
         [application registerUserNotificationSettings:mySettings];
         [application registerForRemoteNotifications];
         
+        NSLog(@"iOS 8 APN setup");
+        
+        
     } else {
         [application registerForRemoteNotificationTypes:
          (UIRemoteNotificationType)
          (UIRemoteNotificationTypeBadge |
           UIRemoteNotificationTypeSound |
           UIRemoteNotificationTypeAlert)];
+        NSLog(@"iOS 7 APN setup");
         
     }
-    
-    
 }
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceToken"];
-    NSLog(@"deviceToken registered.");
+    NSLog(@"APN registered.");
+}
+
+- (void)application:(UIApplication *)application
+didFailToRegisterForRemoteNotificationsWithError:(NSError *) error{
+    NSLog(@"APN failed.");
+}
+
+// called when app is in foreground
+// does actually ever get called for some reason
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"did Recieve in foreground");
+}
+
+// called both foreground and background
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler{
+    NSLog(@"did Recieve in both");
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"refresh"
+     object:self];
+    //[[NSUserDefaults standardUserDefaults] setObject:TRUE forKey:@"deviceToken"];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
