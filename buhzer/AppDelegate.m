@@ -80,12 +80,17 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo{
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler{
-    NSLog(@"did Recieve in both");
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"refresh"
-     object:self];
-    //[[NSUserDefaults standardUserDefaults] setObject:TRUE forKey:@"deviceToken"];
+    NSLog(@"received %@", userInfo);
     
+    if ([[userInfo objectForKey:@"type"] isEqualToString:@"DEQUEUE_BUZZ"]){
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"buzz"
+         object:self];
+    } else {
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"refresh"
+         object:self];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

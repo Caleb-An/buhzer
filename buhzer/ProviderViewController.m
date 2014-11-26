@@ -80,7 +80,7 @@
                     [objectManager postObject:nil path:@"/api/auth/login" parameters:dict success:
                      ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
                          self.user = [result firstObject];
-                         
+                         [self refreshTable];
                          NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                                     @"userId": self.user.id,
                                                                                                     @"registrationId": [[NSUserDefaults standardUserDefaults] dataForKey:@"deviceToken"],
@@ -128,10 +128,9 @@
         NSString *inputHash = self.inputField.text;
         [self.inputField setText:@""];
         
-        
         NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                    @"uniqueHash": inputHash,
-                                                                                   @"waitlistId": @"1",
+                                                                                   @"waitlistId": @"2",
                                                                                    @"providerUserId":self.user.id
                                                                                    }];
         
@@ -150,7 +149,7 @@
 
 - (void) refreshTable {
     
-    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{@"userId": self.user.id}];
+    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{@"waitlistId": @"2"}];
     
     // Create our new entry mapping
     RKObjectMapping* entryMapping = [RKObjectMapping mappingForClass:[Entry class] ];
@@ -164,16 +163,20 @@
                                                    @"isBuzzed"]];
     
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entryMapping method:RKRequestMethodAny pathPattern:@"/api/waitlists/user" keyPath:nil statusCodes:statusCodes];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:entryMapping
+                                                                                            method:RKRequestMethodAny
+                                                                                       pathPattern:@"/api/entries"
+                                                                                           keyPath:nil
+                                                                                       statusCodes:statusCodes];
     
     NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
     
     [objectManager addResponseDescriptor:responseDescriptor];
     
-    [objectManager getObject:nil path:@"/api/waitlists/user" parameters:dict success:
+    [objectManager getObject:nil path:@"/api/entries" parameters:dict success:
      ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
-         NSLog(@"gottem!");
+         NSLog(@"table success! %@", [[result array] mutableCopy]);
          self.queueData = [[result array] mutableCopy];
          [self.table reloadData];
          
@@ -208,8 +211,10 @@
     }
     
     Entry *entry = self.queueData[indexPath.row];
-    cell.textLabel.text = [@"Mister " stringByAppendingString:entry.waitlistId];
+    cell.textLabel.text = [@"Customer " stringByAppendingString:entry.id];
     cell.detailTextLabel.text = entry.clientUserId;
+    
+    cell.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0];
     
     return cell;
 }
@@ -265,45 +270,62 @@
 }
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *cellIndexPath = [self.table indexPathForCell:cell];
+    
+    Entry *entry = [self.queueData objectAtIndex:cellIndexPath.row];
+
     switch (index) {
-        case 0:
-            NSLog(@"Buhz button was pressed");
-            break;
-        case 1:
+        case 0: // Buzz button was pressed
         {
-            
-//            NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
-//                                                                                       @"uniqueHash": inputHash,
-//                                                                                       @"waitlistId": @"1"
-//                                                                                       }];
-//            
-//            NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
-//            
-//            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
-//            
-//            [httpClient postPath:@"/api/waitlists/queue" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                
-//                NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//                UserInfo *user = [[UserInfo alloc] initWithName:responseStr withHashID:inputHash];
-//                [self.queueData addObject:user];
-//                
-//                [self.table reloadData];
-//                NSLog(@"Request Successful, response '%@'", responseStr);
-//            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
-//            }];
-            
-            // Delete button was pressed
-            NSIndexPath *cellIndexPath = [self.table indexPathForCell:cell];
-            
-            [self.queueData removeObjectAtIndex:cellIndexPath.row];
-            [self.table deleteRowsAtIndexPaths:@[cellIndexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self buhzEntry:entry];
+            break;
+        }
+        case 1: // Delete button was pressed
+        {
+            [self deleteEntry:entry];
             break;
         }
         default:
             break;
     }
+}
+
+-(void) buhzEntry: (Entry *)entry {
+    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                               @"userId": entry.clientUserId,
+                                                                               @"waitlistId": entry.waitlistId,
+                                                                               }];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
+    
+    [httpClient postPath:@"/api/waitlists/dequeue/buzz" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"buzz req Successful");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+    }];
+
+}
+
+-(void) deleteEntry: (Entry *)entry {
+    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                               @"userId": entry.clientUserId,
+                                                                               @"waitlistId": entry.waitlistId,
+                                                                               }];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
+    
+    [httpClient postPath:@"/api/waitlists/dequeue" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"dequeue req Successful");
+        [self refreshTable];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+    }];
+
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -331,5 +353,6 @@
     }
     
 }
+
 
 @end

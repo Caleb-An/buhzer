@@ -33,6 +33,11 @@
                                                  name:@"refresh"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveBuhz:)
+                                                 name:@"buzz"
+                                               object:nil];
+    
     self.hashLabel.textAlignment= NSTextAlignmentCenter;
     
     if (self.pendingArray == NULL){
@@ -407,6 +412,19 @@
  
     }
         
+}
+
+- (void) receiveBuhz:(NSNotification *) notification {
+    NSLog(@"buzz received");
+    [self displayBuhz];
+}
+- (void) displayBuhz {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You got Buhzed!"
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cool!"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
