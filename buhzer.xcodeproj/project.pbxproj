@@ -12,6 +12,8 @@
 		3F1CA49919E3BE1700FA1CA8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA49719E3BE1700FA1CA8 /* User.m */; };
 		3F1CA4A119ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
 		3F1CA4A219ECA0DF00FA1CA8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */; };
+		3F2EE5271A7F0515008F672B /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE5261A7F0515008F672B /* SelectionViewController.m */; };
+		3F2EE52A1A7F3D7C008F672B /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE5281A7F3D7C008F672B /* Restaurant.m */; };
 		3F35E83B1A08799E008A474A /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35E83A1A08799E008A474A /* Entry.m */; };
 		3F35E83D1A0879C1008A474A /* EntryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35E83C1A0879C1008A474A /* EntryTest.m */; };
 		3F35E83F1A0879DE008A474A /* WaitlistQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35E83E1A0879DE008A474A /* WaitlistQueue.m */; };
@@ -64,6 +66,10 @@
 /* Begin PBXFileReference section */
 		3F1CA49719E3BE1700FA1CA8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3F1CA4A019ECA0DF00FA1CA8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3F2EE5251A7F0090008F672B /* SelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionViewController.h; sourceTree = "<group>"; };
+		3F2EE5261A7F0515008F672B /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
+		3F2EE5281A7F3D7C008F672B /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		3F2EE5291A7F3D7C008F672B /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		3F35E83A1A08799E008A474A /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		3F35E83C1A0879C1008A474A /* EntryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTest.m; sourceTree = "<group>"; };
 		3F35E83E1A0879DE008A474A /* WaitlistQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitlistQueue.m; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 				3F3FD73B19DB4EBC00AAEF97 /* ViewController.m */,
 				3FB00D8019E233D70040AC87 /* HomeViewController.h */,
 				3FB00D7E19E233690040AC87 /* HomeViewController.m */,
+				3F2EE5251A7F0090008F672B /* SelectionViewController.h */,
+				3F2EE5261A7F0515008F672B /* SelectionViewController.m */,
 				3F3FD73D19DB4EBC00AAEF97 /* Images.xcassets */,
 				3F3FD72919DB4EBC00AAEF97 /* Supporting Files */,
 				3F1CA49719E3BE1700FA1CA8 /* User.m */,
@@ -219,6 +227,8 @@
 				3F35E8421A087A39008A474A /* Waitlist.h */,
 				3F35E8431A087A47008A474A /* Entry.h */,
 				3F35E8441A087A51008A474A /* WaitlistQueue.h */,
+				3F2EE5281A7F3D7C008F672B /* Restaurant.m */,
+				3F2EE5291A7F3D7C008F672B /* Restaurant.h */,
 			);
 			path = buhzer;
 			sourceTree = "<group>";
@@ -404,9 +414,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2EE5271A7F0515008F672B /* SelectionViewController.m in Sources */,
 				3F35E83D1A0879C1008A474A /* EntryTest.m in Sources */,
 				3F1CA49819E3BE1700FA1CA8 /* User.m in Sources */,
 				3F35E8411A0879F7008A474A /* Waitlist.m in Sources */,
+				3F2EE52A1A7F3D7C008F672B /* Restaurant.m in Sources */,
 				3F3FD73C19DB4EBC00AAEF97 /* ViewController.m in Sources */,
 				3F35E83B1A08799E008A474A /* Entry.m in Sources */,
 				3F3FD73319DB4EBC00AAEF97 /* AppDelegate.m in Sources */,

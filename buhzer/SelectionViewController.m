@@ -1,12 +1,12 @@
 //
-//  ProviderViewController.m
+//  SelectionViewController.m
 //  buhzer
 //
-//  Created by joe student on 10/13/14.
-//  Copyright (c) 2014 cs98. All rights reserved.
+//  Created by joe student on 2/1/15.
+//  Copyright (c) 2015 cs98. All rights reserved.
 //
 
-#import "ProviderViewController.h"
+#import "SelectionViewController.h"
 #import <Foundation/Foundation.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
@@ -15,7 +15,14 @@
 #import "SWTableViewCell.h"
 #import "Entry.h"
 
-@implementation ProviderViewController
+@interface SelectionViewController ()
+
+@end
+
+
+@implementation SelectionViewController
+
+
 
 
 - (void)viewDidLoad {
@@ -44,44 +51,33 @@
                     GTMLoggerError(@"Error: %@", error);
                 } else {
                     
-                    GTLPlusPersonEmailsItem *emailItem = [person.emails firstObject];
-                    
                     NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                               @"provider": @"GOOGLE",
-                                                                                               @"uid": person.identifier,
-                                                                                               @"name": person.displayName,
-                                                                                               @"firstName": person.name.givenName,
-                                                                                               @"lastName": person.name.familyName,
-                                                                                               @"email": emailItem.value
+                                                                                               @"userId": person.identifier
                                                                                                }];
-                    NSLog(@"%@", dict);
                     
                     NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
                     
                     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
                     
-                    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[User class]];
+                    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[Restaurant class]];
                     [responseMapping addAttributeMappingsFromArray:@[@"id",
-                                                                     @"provider",
-                                                                     @"accountType",
-                                                                     @"uniqueHash",
-                                                                     @"uid",
                                                                      @"name",
-                                                                     @"email",
-                                                                     @"firstName",
-                                                                     @"lastName",
-                                                                     @"createdAt"]];
+                                                                     @"createdAt",
+                                                                     @"photo"]];
                     
                     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-                    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:@"/api/auth/login" keyPath:nil statusCodes:statusCodes];
+                    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:@"/api/restaurants" keyPath:nil statusCodes:statusCodes];
                     
                     [objectManager addResponseDescriptor:responseDescriptor];
                     
-                    [objectManager postObject:nil path:@"/api/auth/login" parameters:dict success:
+                    [objectManager postObject:nil path:@"/api/restaurants" parameters:dict success:
                      ^(RKObjectRequestOperation *operation, RKMappingResult *result) {
                          NSLog(@"RESULT BOYS: %@", result);
-                         self.user = [result firstObject];
-                         [self refreshTable];
+                         
+                         ///// add restaurants to table 
+                         self.queueData = [[result array] mutableCopy];
+                         [self.table reloadData];
+                         
                          NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                                     @"userId": self.user.id,
                                                                                                     @"registrationId": [[NSUserDefaults standardUserDefaults] dataForKey:@"deviceToken"],
@@ -99,16 +95,16 @@
                          }];
                          
                          NSLog(@"The id is : %@", self.user.id);
-            
+                         
                      } failure:^(RKObjectRequestOperation *operation, NSError *failure) {
                          NSLog(@"Shit just exploded: %@", failure);
                      } ];
                 }
             }];
-
+    
     
     self.queueData = [[NSMutableArray alloc] init];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,7 +180,7 @@
      } failure:^(RKObjectRequestOperation *operation, NSError *failure) {
          NSLog(@"Shit just exploded: %@", failure);
      } ];
-
+    
 }
 
 // table functions
@@ -270,76 +266,11 @@
     NSLog(@"delete!");
 }
 
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    
-    NSIndexPath *cellIndexPath = [self.table indexPathForCell:cell];
-    
-    Entry *entry = [self.queueData objectAtIndex:cellIndexPath.row];
-
-    switch (index) {
-        case 0: // Buzz button was pressed
-        {
-            [self buhzEntry:entry];
-            break;
-        }
-        case 1: // Delete button was pressed
-        {
-            [self deleteEntry:entry];
-            break;
-        }
-        default:
-            break;
-    }
-}
-
--(void) buhzEntry: (Entry *)entry {
-    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                               @"userId": entry.clientUserId,
-                                                                               @"waitlistId": entry.waitlistId,
-                                                                               }];
-    
-    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
-    
-    [httpClient postPath:@"/api/waitlists/dequeue/buzz" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"buzz req Successful");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
-    }];
-
-}
-
--(void) deleteEntry: (Entry *)entry {
-    NSMutableDictionary *dict= [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                               @"userId": entry.clientUserId,
-                                                                               @"waitlistId": entry.waitlistId,
-                                                                               }];
-    
-    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
-    
-    [httpClient postPath:@"/api/waitlists/dequeue" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"dequeue req Successful");
-        [self refreshTable];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
-    }];
-
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.view endEditing:YES];
-}
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.inputField) {
-        [self queueNext];
-        return NO;
-    }
-    return YES;
+    //TODO: load ProviderView with the selected waitlist
+    
 }
 
 - (void) receiveNotification:(NSNotification *) notification
@@ -354,6 +285,5 @@
     }
     
 }
-
 
 @end

@@ -50,7 +50,7 @@ static NSString *const kKeychainItemName = @"Buhzer";
     HomeViewController *obj;
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"restaurant_mode"]) {
-           obj = [storyboard instantiateViewControllerWithIdentifier:@"provider"];
+           obj = [storyboard instantiateViewControllerWithIdentifier:@"selection"];
     } else {
         obj = [storyboard instantiateViewControllerWithIdentifier:@"home"];
     }

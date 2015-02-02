@@ -75,7 +75,7 @@
                                                                                                @"lastName": person.name.familyName,
                                                                                                @"email": emailItem.value
                                                                                                }];
-                    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+                    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
                     
                     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
                     RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[User class]];
@@ -114,7 +114,7 @@
                                                                                @"registrationId": [[NSUserDefaults standardUserDefaults] dataForKey:@"deviceToken"],
                                                                                @"platform":@"IOS"
                                                                                }];
-    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
     
@@ -274,7 +274,7 @@
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:waitlistQueueMapping method:RKRequestMethodAny pathPattern:@"/api/waitlists/user" keyPath:nil statusCodes:statusCodes];
     
-    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:URL];
     
     [objectManager addResponseDescriptor:responseDescriptor];
@@ -314,7 +314,7 @@
                                                                                @"userId": self.user.id,
                                                                                @"waitlistId": waitlistId }];
   
-    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-69-24-7.us-west-2.compute.amazonaws.com"];
+    NSURL *URL = [NSURL URLWithString:@"http://ec2-54-187-54-128.us-west-2.compute.amazonaws.com"];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
     

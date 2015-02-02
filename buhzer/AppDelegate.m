@@ -67,6 +67,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
 - (void)application:(UIApplication *)application
 didFailToRegisterForRemoteNotificationsWithError:(NSError *) error{
     NSLog(@"APN failed.");
+    NSLog(@"%@", error);
 }
 
 // called when app is in foreground
